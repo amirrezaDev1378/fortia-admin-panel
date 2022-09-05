@@ -1,0 +1,37 @@
+@mixin xsBreakpoint() {
+  @media screen and (min-width: 0px) {
+    @content;
+  }
+}
+@mixin smBreakpoint() {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin mdBreakpoint() {
+  @media screen and (min-width: 900px) {
+    @content;
+  }
+}
+@mixin lgBreakpoint() {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin xlBreakpoint() {
+  @media screen and (min-width: 1536px) {
+    @content;
+  }
+}
+@mixin maxBreakpoint($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin minBreakpoint($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}

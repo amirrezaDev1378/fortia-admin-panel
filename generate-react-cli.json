@@ -1,0 +1,46 @@
+{
+  "usesTypeScript": true,
+  "usesCssModule": true,
+  "cssPreprocessor": "scss",
+  "testLibrary": "None",
+  "component": {
+    "default": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": false,
+      "customTemplates": {
+        "story" : "./component-generator/custom/story/TemplateName.stories.tsx",
+        "component": "./component-generator/custom/component/TemplateName.tsx",
+        "test": "./component-generator/custom/test/TemplateName.test.tsx"
+      }
+    },
+    "page": {
+      "path": "src/pages",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": false,
+      "customTemplates": {
+        "story" : "./component-generator/custom/story/TemplateName.stories.tsx",
+        "component": "./component-generator/custom/component/TemplateName.tsx",
+        "test": "./component-generator/custom/test/TemplateName.test.tsx"
+      }
+
+    },
+    "container": {
+      "path": "src/containers",
+      "withLazy": false,
+      "withStory": true,
+      "withStyle": true,
+      "withTest": true,
+      "customTemplates": {
+        "story" : "./component-generator/custom/story/TemplateName.stories.tsx",
+        "component": "./component-generator/custom/component/TemplateName.tsx",
+        "test": "./component-generator/custom/test/TemplateName.test.tsx"
+      }
+
+    }
+  }
+}

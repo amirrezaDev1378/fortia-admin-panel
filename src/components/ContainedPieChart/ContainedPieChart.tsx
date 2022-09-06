@@ -58,3 +58,4 @@ export default ContainedPieChart;
 ContainedPieChart.defaultProps = {
     noLabel: false
 }
+// TODO - add hover animation

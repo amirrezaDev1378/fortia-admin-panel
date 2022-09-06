@@ -14,7 +14,10 @@ export default {
 
 const Template: ComponentStory<typeof TemplateName> = (args) => <StoryBookProvider><TemplateName {...args} /> </StoryBookProvider>;
 
-export const ProductArg = Template.bind({});
+type ProductArgTypes ={
+    args:React.ComponentProps<typeof TemplateName>
+}
+export const ProductArg:ProductArgTypes = Template.bind({});
 
 ProductArg.args = {
     label: 'TemplateName',

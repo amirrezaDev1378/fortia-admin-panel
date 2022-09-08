@@ -1,0 +1,35 @@
+@import "../../styles/mixins.module";
+
+.Logo {
+  width: 150px;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.Form {
+  background: rgba(255, 255, 255, 0.46);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.2px);
+  -webkit-backdrop-filter: blur(7.2px);
+  padding: 30px;
+  border-radius: 10px;
+  @include xsBreakpoint() {
+    width: 280px;
+  }
+  @include smBreakpoint() {
+    width: 400px;
+  }
+}
+
+.LoginContainer {
+  transition: 0.5s all;
+  animation: gradientAnimation ease-out 1s infinite;
+  background: #6A82FB;
+  background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);
+  background: linear-gradient(to right, #6A82FB, #FC5C7D);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+
+}

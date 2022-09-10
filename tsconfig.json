@@ -38,14 +38,18 @@
         "src/*"
       ]
     },
-    "incremental": true
+    "incremental": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+
 }

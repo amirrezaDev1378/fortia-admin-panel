@@ -1,6 +1,6 @@
 import React from 'react';
 import store from "../src/redux/store";
-import defaultTheme from "../src/styles/themes/defaultTheme";
+import defaultTheme from "@/styles/themes/defaultTheme";
 import {CssBaseline, ThemeProvider } from "@mui/material";
 import {Provider} from "react-redux";
 import {CacheProvider} from "@emotion/react";

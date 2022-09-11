@@ -28,5 +28,11 @@ const theme = createTheme({
                 light: "#E2FBD7"
             },
         },
+    typography: {
+        fontFamily: 'Poppins , sans-serif , Roboto',
+        subtitle1:{
+            fontSize: "0.8rem",
+        }
+    }
 });
 export default theme;

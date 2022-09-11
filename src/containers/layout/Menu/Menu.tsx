@@ -101,7 +101,7 @@ const Menu: FC<MenuProps> = ({items}) => {
 
         >
 
-            <IconButton onClick={clickHandler}>
+            <IconButton className={"d-md-none"} onClick={clickHandler}>
                 <ArrowForwardIos id={"menuArrow"} />
             </IconButton>
             {
@@ -109,6 +109,8 @@ const Menu: FC<MenuProps> = ({items}) => {
                     return <MenuItem item={item} key={i}/>
                 })
             }
+
+
 
         </Stack>
     );

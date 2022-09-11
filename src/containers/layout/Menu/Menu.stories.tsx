@@ -3,7 +3,8 @@ import {ComponentStory, ComponentMeta} from '@storybook/react';
 
 import Menu from './Menu';
 import StoryBookProvider from "../../../../.storybook/provider";
-import {AccountBalanceOutlined, DownloadOutlined, Home, Phone, PictureAsPdfOutlined, VerifiedUserOutlined} from "@mui/icons-material";
+import { PictureAsPdfOutlined} from "@mui/icons-material";
+import {AiOutlineDashboard, FaMoneyCheckAlt} from "react-icons/all";
 
 export default {
     title: 'Layout/Menu ',
@@ -20,8 +21,8 @@ type ProductArgTypes = {
 export const ProductArg: ProductArgTypes = Template.bind({});
 
 const items = [
-    {name: 'Home', link: '/', icon: <VerifiedUserOutlined/> , isActive: true},
-    {name: 'About', link: '/about', icon: <DownloadOutlined/>},
+    {name: 'Dashboard', link: '/', icon: <AiOutlineDashboard/> , isActive: true},
+    {name: 'Financial', link: '/about', icon: <FaMoneyCheckAlt/>},
     {name: 'Contact', link: '/contact', icon: <PictureAsPdfOutlined/>},
 
 ]

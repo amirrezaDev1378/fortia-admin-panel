@@ -10,13 +10,14 @@ export const getCards = () => {
         })
     }
 
-    const {data, error} = useSWR(url, fetcher)
+    const {data, error , mutate} = useSWR(url, fetcher)
 
     return {
         data,
         isLoading: !error && !data,
         hasError: !!error,
         error,
-        hasNoCards: error?.response?.data?.error === "NO_CARDS_FOUND"
+        hasNoCards: error?.response?.data?.error === "NO_CARDS_FOUND",
+        mutate
     }
 }

@@ -19,7 +19,12 @@ export interface FormProps extends Omit<React.FormHTMLAttributes<HTMLFormElement
 
 }
 
-
+/**
+ * reusable form component
+ *
+ * input must have name attribute!
+ * submit button must have type="submit"
+ */
 const Form: FC<FormProps> = ({onSubmit, children, schema, config, ...otherProps}) => {
     const {register, control, handleSubmit, watch, formState: {errors, isSubmitting, isSubmitSuccessful}} = useForm({
         mode: "all",

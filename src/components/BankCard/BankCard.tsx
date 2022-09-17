@@ -4,6 +4,7 @@ import {Stack, Typography} from "@mui/material";
 import Grid from "@mui/material/Grid";
 import {styled} from "@mui/system";
 import CSS from 'csstype';
+import {ServerContext} from "@/config/server/server";
 
 export interface BankCardProps {
     title: string;
@@ -22,6 +23,7 @@ export interface BankCardProps {
 }
 
 const BankCard: FC<BankCardProps> = (props) => {
+
     const {title, number, name, date, color, icon, sizes} = props;
     console.log(sizes)
     let mainClasses = [styles.BankCard];
@@ -32,7 +34,6 @@ const BankCard: FC<BankCardProps> = (props) => {
             backgroundColor: color !== "glass" && color,
         }) as CSS.Properties
     });
-
 
     return (
         <StyledCard  item container className={` ${mainClasses.join(" ")}`} flexDirection={"column"} {...sizes}>

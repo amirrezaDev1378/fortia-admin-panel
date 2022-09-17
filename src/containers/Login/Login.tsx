@@ -6,6 +6,7 @@ import * as yup from "yup";
 import Image from "next/image";
 import {mainLogo} from "@/assets";
 import {toast, ToastContainer} from "react-toastify";
+import {LoginService} from "@/services/login/login";
 
 export interface LoginProps {
 
@@ -25,17 +26,26 @@ const Login: FC<LoginProps> = (props) => {
     }
     const submitHandler: formSubmitHandlerType = async (data, e) => {
         await setSubmitButtonText("loading...");
-        await new Promise((resolve) => setTimeout(resolve, 5000))
+
         e.target.querySelectorAll("input").forEach(e => e.value = "")
-        console.log({data, e})
-        toast("submit succeeded", {
-            type: "success",
-            position: "bottom-left"
-        })
-        await setSubmitButtonText("submit")
+
+        LoginService(data.username, data.password).then(res => {
+            if (res.status === 200) {
+                toast("logged successfully", {
+                    type: "success",
+                    position: "bottom-left"
+                })
+            }
+        }).catch(err => {
+            const msg = err.response.data.message || "something went wrong";
+            toast(`${msg}`, {
+                type: "error",
+                position: "bottom-left"
+            })
+        }).finally(async () => {
+            await setSubmitButtonText("submit")
+        });
     }
-    useEffect(() => {
-    }, [])
     return (
         <Grid className={styles.LoginContainer} alignItems={"center"} display={"flex"} flexDirection={"column"} container>
             <div className={`${styles.Logo}`}>

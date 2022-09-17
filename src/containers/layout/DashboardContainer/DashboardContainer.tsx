@@ -14,9 +14,14 @@ export interface DashboardContainerProps extends DefaultComponentProps<GridTypeM
     config?: any;
 
 }
+
+/**
+ * container for dashboard
+ * accepts Grid props except container & flexWrap
+ */
 const DashboardContainer: FC<DashboardContainerProps> = ({children,config, ...props}) => {
     delete props.container;
-    delete props.gap;
+    delete props.flexWrap;
 
     const dummyInfo: item[] = [
         {name: 'Dashboard', link: '/', icon: <AiOutlineDashboard size={40}/> },
@@ -25,7 +30,7 @@ const DashboardContainer: FC<DashboardContainerProps> = ({children,config, ...pr
     ]
 
     return (
-        <Grid container gap={5} {...props}>
+        <Grid container flexWrap={"nowrap"} {...props}>
             <Menu items={dummyInfo}/>
             {children}
         </Grid>

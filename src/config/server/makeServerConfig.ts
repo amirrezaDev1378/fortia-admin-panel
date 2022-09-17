@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 type constructor = {
     address: string;
@@ -31,14 +32,19 @@ export class MakeServerConfig {
     constructor(config: constructor) {
         this.port = config.port;
         this.address = config.address;
+
+        axios.get(`${this.generateBaseRoute()}`).catch((err) => {
+            throw new Error("server is not responding!!!")
+        })
+
     }
 
     generateBaseRoute() {
-        let baseRoute=""
+        let baseRoute = ""
         if (this.port) {
-            baseRoute =  this.address + ":" + this.port
+            baseRoute = this.address + ":" + this.port
         } else {
-            baseRoute =  this.address
+            baseRoute = this.address
         }
         return baseRoute;
     }
@@ -72,11 +78,17 @@ export class MakeServerConfig {
     };
 
     generateContext = () => {
+        if (!this.routes) {
+            throw new Error("first config routes!!!")
+        }
         return React.createContext({
             routes: this.routes as appRoutes,
         })
     }
     generateObject = () => {
+        if (!this.routes) {
+            throw new Error("first config routes!!!")
+        }
         return {
             routes: this.routes as appRoutes,
         }

@@ -16,6 +16,7 @@ export const getCards = () => {
         data,
         isLoading: !error && !data,
         hasError: !!error,
-        error
+        error,
+        hasNoCards: error?.response?.data?.error === "NO_CARDS_FOUND"
     }
 }

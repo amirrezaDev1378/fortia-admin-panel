@@ -18,16 +18,18 @@ export interface BankCardProps {
         sm?: number;
         md?: number;
         lg?: number;
-    }
+    },
+    className?: string;
 
 }
 
 const BankCard: FC<BankCardProps> = (props) => {
 
-    const {title, number, name, date, color, icon, sizes} = props;
-    console.log(sizes)
+    const {title, number, name, date, color, icon, sizes , className} = props;
     let mainClasses = [styles.BankCard];
     color === "glass" && mainClasses.push(styles.Glass);
+
+    !!className && mainClasses.push(className);
 
     const StyledCard: typeof Grid = styled(Grid)(({theme}): any => {
         return ({

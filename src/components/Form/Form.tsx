@@ -28,7 +28,7 @@ export interface FormProps extends Omit<React.FormHTMLAttributes<HTMLFormElement
 const Form: FC<FormProps> = ({onSubmit, children, schema, config, ...otherProps}) => {
     const {register, control, handleSubmit, watch, formState: {errors, isSubmitting, isSubmitSuccessful}} = useForm({
         mode: "all",
-        resolver: yupResolver(schema)
+        resolver: yupResolver(schema),
     });
 
     const submitHandler = (e) => {

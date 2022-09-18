@@ -21,6 +21,7 @@ const FormChildren: FC<formChildrenType> = ({children, register, errors, config}
                         const formHasErrors = Object.keys(errors).length !== 0;
                         const otherProps = isSubmitButton ? {disabled: formHasErrors} :register(fieldName);
 
+
                         if (!fieldName && !isSubmitButton) {
                             return <></>;
                         }
@@ -29,7 +30,6 @@ const FormChildren: FC<formChildrenType> = ({children, register, errors, config}
                             ...Child.props,
                             ...otherProps,
                         }
-
                         return <React.Fragment key={i}>
                             {React.cloneElement(Child, {...props})}
                             {errors[fieldName] && <FormError key={`${fieldName} ${i}`} error={errors[fieldName].message}/>}

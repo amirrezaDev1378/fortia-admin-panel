@@ -10,7 +10,7 @@ server.setRoutes({
     register: '/register',
     cards: {
         getCards: '/rest/getAllCards',
-        addCard: '/cards/add',
+        addCard: '/rest/createCard',
         deleteCard: '/cards/delete',
         updateCard: '/cards/update'
     },

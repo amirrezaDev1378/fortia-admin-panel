@@ -1,21 +1,18 @@
 import {ServerConfig} from "@/config/server/server";
 import {axiosInstance} from "@/config/adaptor/axios";
+import {SetUser} from "@/services/login/setUser";
 
-type LoginServiceType = (username: string, password: string) => Promise<{ status:number , data:any }>;
+type LoginServiceType = (identifier: string, password: string) => Promise<{ isUserSaved: boolean, user: object | null }>;
 
 export const LoginService: LoginServiceType = async (username, password) => {
-    const {status, data} = await axiosInstance.post(ServerConfig.routes.login, {}
-        , {
-        params: {
-            username,
-            password
-        },
-        headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-            'Accept': 'Token',
-            "Access-Control-Allow-Origin": "*",
+    const {status, data} = await axiosInstance.post(ServerConfig.routes.login, {
+            identifier: username,
+            password: password
         }
-    }
-)
-    return {status, data};
+        , {}
+    )
+    const {jwt, user} = data;
+    const isUserSaved = SetUser(jwt, user);
+
+    return {isUserSaved, user};
 }

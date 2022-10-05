@@ -79,7 +79,7 @@ const CreateBankCard: FC<CreateBankCardProps> = (props) => {
                         label={"Bank Name"}
                         variant={"outlined"}
                     />
-                    <TextField onChangeCapture={allowOnlyNumber} name={"cardNumber"} label={"Card Number"} variant={"outlined"} />
+                    <TextField onChangeCapture={allowOnlyNumber} name={"cardNumber"} label={"Card Number"} variant={"outlined"}/>
                     <TextField name={"expireDate"} label={"Expire Date"} variant={"outlined"}/>
                     <TextField name={"ownerName"} label={"Owner Name"} variant={"outlined"}/>
                     <Button color={"info"} variant={"contained"} type={"submit"}>Submit</Button>

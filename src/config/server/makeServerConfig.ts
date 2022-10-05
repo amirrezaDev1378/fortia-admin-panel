@@ -10,16 +10,39 @@ export type appRoutes = {
     login: string,
     register: string,
     cards: {
-        getCards: string,
-        addCard: string,
-        deleteCard: string,
-        updateCard?: string
+        getAll: string,
+        add: string,
+        delete: string,
+        update: string
     }
     credit: {
         getCredit: string,
         withdraw: string,
-        charge: string
+        charge: string,
+        getChartData: string,
     },
+    files: {
+        image: string,
+    },
+    products: {
+        getAll: string,
+        add: string,
+        delete: string,
+        update: string
+        getById: string
+    },
+    assets:{
+        getAll:string,
+        charge:string,
+        withdraw:string,
+    },
+    articles:{
+        getAll:string,
+        add:string,
+        delete:string,
+        update:string,
+        getById:string
+    }
     baseRoute?: string
 }
 

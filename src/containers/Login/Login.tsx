@@ -30,7 +30,7 @@ const Login: FC<LoginProps> = (props) => {
         e.target.querySelectorAll("input").forEach(e => e.value = "")
 
         LoginService(data.username, data.password).then(res => {
-            if (res.status === 200) {
+            if (res.isUserSaved) {
                 toast("logged successfully", {
                     type: "success",
                     position: "bottom-left"

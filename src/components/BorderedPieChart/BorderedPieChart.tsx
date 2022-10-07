@@ -8,23 +8,33 @@ export interface BorderedPieChartProps {
         value: number,
         color?: string
     }[],
-    tooltip?: boolean
+    tooltip?: boolean,
+    size?: { width: number, height: number }
+    PieChartProps?: React.ComponentPropsWithoutRef<typeof PieChart>
+    PieProps?: React.ComponentPropsWithoutRef<typeof Pie>
 }
 
-const BorderedPieChart: FC<BorderedPieChartProps> = ({data, tooltip}) => {
+const BorderedPieChart: FC<BorderedPieChartProps> = ({data, tooltip, size, PieChartProps, PieProps}) => {
     const defaultColors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+    const PieConfig = {
+        innerRadius: 60,
+        outerRadius: 80,
+        fill: "#8884d8",
+        paddingAngle: 5,
+        dataKey: "value",
+        ...PieProps,
+        data: data,
+    }
+    const PieChartConfig = {
+        ...size,
+        ...PieChartProps,
+    }
     return (
+
         <div>
-            <PieChart width={800} height={400}>
+            <PieChart {...PieChartConfig} >
                 <Pie
-                    data={data}
-                    cx={120}
-                    cy={200}
-                    innerRadius={60}
-                    outerRadius={80}
-                    fill="#8884d8"
-                    paddingAngle={5}
-                    dataKey="value"
+                    {...PieConfig}
                 >
                     {data.map((item, index) => {
                         const color = item.color || defaultColors[index % defaultColors.length];
@@ -43,5 +53,6 @@ export default BorderedPieChart;
 
 
 BorderedPieChart.defaultProps = {
-    tooltip: false
+    tooltip: false,
+    size: {width: 400, height: 400}
 }

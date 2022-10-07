@@ -7,9 +7,8 @@ import user from '@testing-library/user-event'
 
 it('It should mount', () => {
 
-    const {container} = render(<Menu
-
-    />);
+    const {container} = render(
+        <Menu items={[{name: "Home", link: "/", icon: <div/>}]}/>);
     expect(container).toBeTruthy();
 
 });

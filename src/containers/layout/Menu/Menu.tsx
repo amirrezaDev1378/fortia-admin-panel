@@ -1,16 +1,20 @@
-import React, {FC, useLayoutEffect, useState} from 'react';
+import React, {FC} from 'react';
 import styles from "./Menu.module.scss";
 import {Button, IconButton, Stack, Typography} from "@mui/material";
 import Link from "next/link";
 import {ArrowForwardIos} from "@mui/icons-material";
-import anime, {AnimeInstance} from "animejs";
 import {menuAnimation} from "./menuAnimation";
+import CSS from "csstype";
 
 export type item = {
     name: string,
     link: string,
     icon: React.ReactNode,
     isActive?: boolean,
+    position?: "top" | "bottom",
+    gap?: number,
+    customStyle?: CSS.Properties
+
 }
 
 export interface MenuProps {
@@ -34,7 +38,13 @@ const MenuItem: FC<{ item: item }> = ({item}) => {
 }
 
 const Menu: FC<MenuProps> = ({items}) => {
-    const {mouseEnterHandler , mouseLeaveHandler , clickHandler} = menuAnimation();
+    const {mouseEnterHandler, mouseLeaveHandler, clickHandler} = menuAnimation();
+    const topItems = items.filter((item) => {
+        return item?.position === "top" || typeof item?.position === "undefined"
+    });
+    const bottomItems = items.filter((item) => {
+        return item?.position === "bottom"
+    })
 
     return (
 
@@ -53,14 +63,24 @@ const Menu: FC<MenuProps> = ({items}) => {
 
 
             {
-                items.map((item, i) => {
+                topItems.map((item, i) => {
                     return <MenuItem
-
                         item={item}
                         key={i}
                     />
                 })
             }
+
+            <div style={{marginTop: "auto"}}>
+                {
+                    bottomItems.map((item, i) => {
+                        return <MenuItem
+                            item={item}
+                            key={i}
+                        />
+                    })
+                }
+            </div>
 
 
         </Stack>

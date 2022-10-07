@@ -1,12 +1,16 @@
 .MenuContainer {
   width: fit-content;
   height: 100%;
-  background-color: #ffffff;
+  background-color: rgb(255, 255, 255);
   border-radius: 0 5px 5px 0;
   padding: 5px 5px 5px 0;
-  position: relative;
+  position: fixed;
   overflow: hidden;
   flex: 0 0 fit-content;
+  z-index: 10;
+  top: 0;
+  left: 0;
+
 }
 
 .MenuItem {
@@ -21,7 +25,15 @@
 }
 
 .active {
-  color: black;
+  color: #ffffff;
+  background-color: #5570F1;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #3e5be7;
+    color: #f3f3f3;
+
+  }
 }
 
 .deActive {

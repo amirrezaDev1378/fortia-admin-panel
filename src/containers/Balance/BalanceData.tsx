@@ -55,7 +55,6 @@ const BalanceData: FC = (props) => {
     }
     const chargeHandler = () => creditHandler("charge");
     const withdrawHandler = () => creditHandler("withdraw");
-    console.log(dialog.type)
     return (
         <Show>
             <Show.When isTrue={isLoadingCreditData}>
@@ -66,20 +65,23 @@ const BalanceData: FC = (props) => {
             </Show.When>
             <Show.Else>
                 <Stack>
-                    <Typography variant={"h2"}>
+                    <Typography variant={"h3"}>
                         Balance
                     </Typography>
-                    <Divider/>
-                    <Stack direction={"row"} justifyContent={"space-evenly"} alignItems={"center"}>
-                        <Typography variant={"h3"}>
-                            Total Balance : {!isLoadingCreditData && CreditData?.data}
+                    <Divider className="my-2"/>
+                    <Stack direction={"column"} justifyContent={"space-evenly"} alignItems={"center"}>
+                        <Typography variant={"h4"}>
+                            Total Balance : {CreditData?.data}
                         </Typography>
-                        <Button onClick={chargeHandler} variant={"contained"}>
-                            Charge
-                        </Button>
-                        <Button onClick={withdrawHandler} variant={"outlined"}>
-                            Withdraw
-                        </Button>
+                        <Stack className="w-100 mt-2" direction={"row"} justifyContent={"space-evenly"} alignItems={"center"}>
+                            <Button onClick={chargeHandler} variant={"contained"}>
+                                Charge
+                            </Button>
+                            <Button onClick={withdrawHandler} variant={"outlined"}>
+                                Withdraw
+                            </Button>
+                        </Stack>
+
                         <Dialog
                             open={dialog.open}
                             onClose={closeModal}

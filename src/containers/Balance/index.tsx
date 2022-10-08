@@ -6,10 +6,10 @@ const Balance = () => {
 
 
     return (
-        <>
+        <div className={"white-section"}>
             <BalanceData/>
             <BalanceChart/>
-        </>
+        </div>
 
     );
 };

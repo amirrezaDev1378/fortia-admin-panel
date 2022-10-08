@@ -1,12 +1,13 @@
 import React, {FC} from 'react';
 import styles from "./Financial.module.scss";
 import DashboardContainer from "@containers/layout/DashboardContainer/DashboardContainer";
-import { Grid} from "@mui/material";
+import {Grid, Stack} from "@mui/material";
 
 import "keen-slider/keen-slider.min.css"
 
 import BankCards from "@containers/BankCards";
 import Balance from "@containers/Balance";
+import Assets from "@containers/Assets";
 
 export interface FinancialProps {
 
@@ -19,7 +20,11 @@ const Financial: FC<FinancialProps> = (props) => {
         <DashboardContainer>
             <Grid flexWrap={"nowrap"} flexDirection={"column"} display={"flex"} container className={styles.Financial}>
                 <BankCards/>
-                <Balance/>
+                <Stack direction={{md:"row"}}  >
+
+                    <Balance/>
+                    <Assets/>
+                </Stack>
             </Grid>
         </DashboardContainer>
     );

@@ -7,5 +7,8 @@ export type Overwrite<Base, Overrides> = Omit<Base, keyof Overrides> & Overrides
 
 
 export type GetStrapiRequest<T extends CollectionTypeSchema> = {
-    data: T["attributes"];
+        data: T["attributes"][] | T["attributes"]
+}
+export type GetStrapiRequestArr<T extends CollectionTypeSchema> = {
+    data: T["attributes"][]
 }

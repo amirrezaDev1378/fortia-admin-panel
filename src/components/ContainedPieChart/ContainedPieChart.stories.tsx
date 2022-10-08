@@ -22,6 +22,6 @@ const dummyData = [
 
 ProductArg.args = {
     data: dummyData,
-    noLabel:true
+    useLabel:false
 
 };

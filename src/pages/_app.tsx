@@ -8,6 +8,8 @@ import theme from '../styles/themes/defaultTheme';
 import createEmotionCache from '../config/emotionCache';
 import { Provider } from 'react-redux';
 import '../styles/globals.css'
+import "../src/styles/styles.scss"
+
 import store from "@redux/store"
 
 // Client-side cache, shared for the whole session of the user in the browser.

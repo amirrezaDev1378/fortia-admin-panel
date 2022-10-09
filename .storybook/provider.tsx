@@ -7,6 +7,7 @@ import {CacheProvider} from "@emotion/react";
 import createEmotionCache from "../src/config/emotionCache";
 import "../src/styles/bootstrap.css";
 import "../src/styles/globals.css";
+import "../src/styles/styles.scss"
 import {ServerContext} from "@/config/server/server"
 
 const clientSideEmotionCache = createEmotionCache();

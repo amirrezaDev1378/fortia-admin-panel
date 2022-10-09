@@ -8,6 +8,7 @@ import "keen-slider/keen-slider.min.css"
 import BankCards from "@containers/BankCards";
 import Balance from "@containers/Balance";
 import Assets from "@containers/Assets";
+import ProductsOverview from "@containers/ProductsOverview";
 
 export interface FinancialProps {
 
@@ -17,14 +18,16 @@ const Financial: FC<FinancialProps> = (props) => {
 
 
     return (
-        <DashboardContainer>
-            <Grid flexWrap={"nowrap"} flexDirection={"column"} display={"flex"} container className={styles.Financial}>
+        <DashboardContainer md={12}>
+            <Grid md={12} flexWrap={"nowrap"} flexDirection={"column"} display={"flex"} container className={styles.Financial}>
                 <BankCards/>
-                <Stack direction={{md:"row"}}  >
-
+                <Grid md={12} display={"flex"} flexDirection={{md: "row"}}>
                     <Balance/>
-                    <Assets/>
-                </Stack>
+                    <Grid container item md={7}>
+                        <Assets/>
+                        <ProductsOverview/>
+                    </Grid>
+                </Grid>
             </Grid>
         </DashboardContainer>
     );

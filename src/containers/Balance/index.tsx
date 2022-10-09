@@ -1,15 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import BalanceData from "@containers/Balance/BalanceData";
 import BalanceChart from "@containers/Balance/BalanceChart";
+import {Grid} from "@mui/material";
 
 const Balance = () => {
 
 
     return (
-        <div className={"white-section"}>
+        <Grid md={5} container item className={"section-white d-flex"} alignItems={"center"} justifyContent={"center"}>
             <BalanceData/>
             <BalanceChart/>
-        </div>
+        </Grid>
 
     );
 };

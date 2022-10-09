@@ -41,8 +41,8 @@ const BankCards:FC = (props) => {
             </Show.When>
             <Show.Else>
 
-                <Grid className={"white-section"} item gap={2} xs={10} flexDirection={"row"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexWrap={"nowrap"}>
-                    <Grid className={"keen-slider"} ref={ref} container item flexDirection={"row"} display={"flex"} flexWrap={"nowrap"}>
+                <Grid className={"section-white width-default"} item gap={2} xs={12} flexDirection={"row"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexWrap={"nowrap"}>
+                    <Grid md={12} className={"keen-slider"} ref={ref} container item flexDirection={"row"} display={"flex"} flexWrap={"nowrap"}>
                         <For each={data} render={(item, i) => {
                             const {expireDate, cardNumber, ownerName, bankName, color} = item.attributes;
                             return <BankCard

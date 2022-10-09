@@ -1,0 +1,153 @@
+.width-default {
+  width: initial !important;
+}
+
+.height-default {
+  height: initial !important;
+}
+
+.min-width-default {
+  min-width: initial !important;
+}
+
+.min-height-default {
+  min-height: initial !important;
+}
+
+.max-width-default {
+  max-width: initial !important;
+}
+
+.max-height-default {
+  max-height: initial !important;
+}
+
+.margin-right-default {
+  margin-right: initial !important;
+}
+
+.margin-left-default {
+  margin-left: initial !important;
+}
+
+.margin-top-default {
+  margin-top: initial !important;
+}
+
+.margin-bottom-default {
+  margin-bottom: initial !important;
+}
+
+.padding-right-default {
+  padding-right: initial !important;
+}
+
+.padding-left-default {
+  padding-left: initial !important;
+}
+
+.padding-top-default {
+  padding-top: initial !important;
+}
+
+.padding-bottom-default {
+  padding-bottom: initial !important;
+}
+
+.border-radius-default {
+  border-radius: initial !important;
+}
+
+.border-top-left-radius-default {
+  border-top-left-radius: initial !important;
+}
+
+.border-top-right-radius-default {
+  border-top-right-radius: initial !important;
+}
+
+.border-bottom-left-radius-default {
+  border-bottom-left-radius: initial !important;
+}
+
+.border-bottom-right-radius-default {
+  border-bottom-right-radius: initial !important;
+}
+
+.font-size-default {
+  font-size: initial !important;
+}
+
+.line-height-default {
+  line-height: initial !important;
+}
+
+.top-default {
+  top: initial !important;
+}
+
+.bottom-default {
+  bottom: initial !important;
+}
+
+.left-default {
+  left: initial !important;
+}
+
+.right-default {
+  right: initial !important;
+}
+
+.flex-basis-default {
+  flex-basis: initial !important;
+}
+
+.flex-grow-default {
+  flex-grow: initial !important;
+}
+
+.flex-shrink-default {
+  flex-shrink: initial !important;
+}
+
+.section-primary {
+  background-color: #4339F2;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 10px;
+  width: fit-content;
+}
+
+.section-warning {
+  background-color: #FFB200;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 10px;
+  width: fit-content;
+}
+
+.section-success {
+  background-color: #34B53A;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 10px;
+  width: fit-content;
+}
+
+.section-white {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 10px;
+  width: fit-content;
+}
+
+.section-gray {
+  background-color: #e3e7ef;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 10px;
+  width: fit-content;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,19 @@
+$colors: (
+        primary: #4339F2,
+        warning: #FFB200,
+        success:#34B53A,
+        white: #fff,
+        gray: #e3e7ef,
+);
+
+@mixin generateSections() {
+  @each $name, $color in $colors {
+    .section-#{""+$name} {
+      background-color: $color;
+      border-radius: 10px;
+      padding: 25px;
+      margin: 10px;
+      width: fit-content;
+    }
+  }
+}

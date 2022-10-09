@@ -1,0 +1,43 @@
+$properties: (
+        "width",
+        "height",
+        "min-width",
+        "min-height",
+        "max-width",
+        "max-height",
+        "margin-right",
+        "margin-left",
+        "margin-top",
+        "margin-bottom",
+        "padding-right",
+        "padding-left",
+        "padding-top",
+        "padding-bottom",
+        "border-radius",
+        "border-top-left-radius",
+        "border-top-right-radius",
+        "border-bottom-left-radius",
+        "border-bottom-right-radius",
+        "font-size",
+        "line-height",
+        "top",
+        "bottom",
+        "left",
+        "right",
+        "flex-basis",
+        "flex-grow",
+        "flex-shrink",
+);
+
+
+@mixin defaultClasses($name) {
+  .#{$name}-default {
+    #{$name}: initial !important;
+  }
+}
+
+@mixin generateUtils {
+  @each $property in $properties {
+    @include defaultClasses($property);
+  }
+}

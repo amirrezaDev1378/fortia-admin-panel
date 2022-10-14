@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import {Grid} from "@mui/material";
 import {For, Show} from "react-haiku";
 import BankCard from "@components/BankCard/BankCard";
@@ -8,19 +8,40 @@ import {useKeenSlider} from "keen-slider/react";
 import {getCards} from "@/services/cards/getCards";
 import ContainerLoading from "@containers/layout/Loading";
 import {useAutoUpdateKeenSlider} from "@containers/BankCards/useAutoUpdateKeenSlider";
+import {cardHoverAnimation} from "@utils/animations/cardHover";
 
-const BankCards:FC = (props) => {
+const BankCards: FC = (props) => {
+
     const [ref, iRef] = useKeenSlider<HTMLDivElement>({
-        slides: {
-            perView: 2.5,
-            spacing: 10,
-            origin: "auto"
+        breakpoints: {
+            "(min-width: 0px)": {
+                slides: {
+                    perView: 1.1,
+                    spacing: 7,
+                    origin: "auto"
+                }
+            },
+            "(min-width: 600px)": {
+                slides: {
+                    perView: 1.5,
+                    spacing: 7,
+                    origin: "auto"
+                }
+            },
+            "(min-width: 900px)": {
+                slides: {
+                    perView: 2.5,
+                    spacing: 10,
+                    origin: "auto"
+                }
+            }
         }
     })
 
     useAutoUpdateKeenSlider(iRef, props)
 
     const {data, isLoading, error, hasError, hasNoCards} = getCards();
+
 
     return (
         <Show>
@@ -41,8 +62,17 @@ const BankCards:FC = (props) => {
             </Show.When>
             <Show.Else>
 
-                <Grid className={"section-white width-default"} item gap={2} xs={12} flexDirection={"row"} display={"flex"} justifyContent={"center"} alignItems={"center"} flexWrap={"nowrap"}>
-                    <Grid md={12} className={"keen-slider"} ref={ref} container item flexDirection={"row"} display={"flex"} flexWrap={"nowrap"}>
+                <Grid className={"section-white width-default p-3 p-sm-4"}
+                      item
+                      gap={2}
+                      xs={12}
+                      flexDirection={{md:"row",xs:"column"}}
+                      display={"flex"}
+                      justifyContent={"center"}
+                      alignItems={"center"}
+                      flexWrap={"nowrap"}
+                >
+                    <Grid xs={12} className={"keen-slider"} ref={ref} container item flexDirection={"row"} display={"flex"} flexWrap={"nowrap"}>
                         <For each={data} render={(item, i) => {
                             const {expireDate, cardNumber, ownerName, bankName, color} = item.attributes;
                             return <BankCard

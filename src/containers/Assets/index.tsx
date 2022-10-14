@@ -29,7 +29,7 @@ const Assets: FC = (props) => {
                 An error occurred
             </Show.When>
             <Show.Else>
-                <Grid container item md={12} flexDirection={"column"} alignItems={"center"} className={"section-white height-fit"}>
+                <Grid container item xs={12} flexDirection={"column"} alignItems={"center"} className={"section-white height-fit"}>
                     <Typography variant={"h3"}>
                         Assets
                     </Typography>

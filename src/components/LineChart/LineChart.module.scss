@@ -1,1 +1,13 @@
-.LineChart {}
+@import "../../styles/mixins.module";
+
+.LineChart {
+  @include xsBreakpoint {
+    width: 100% !important;
+    height: 200px !important;
+  }
+  @include smBreakpoint {
+    width: 400px !important;
+    height: 300px !important;
+  }
+}
+

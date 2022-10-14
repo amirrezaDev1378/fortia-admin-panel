@@ -11,16 +11,13 @@ import Form from "@components/Form/Form";
 import {allowOnlyNumber} from "@utils/allowOnlyNumber";
 import useSWR, {useSWRConfig} from "swr";
 import {ServerConfig} from "@/config/server/server";
+import {initialStates, MakeHandler} from "@containers/Balance/handler";
 
 const BalanceData: FC = (props) => {
     const {CreditHasError, CreditData, isLoadingCreditData, CreditMutate, hasNoRecords} = getCredit();
     const {mutate: ChartMutate} = useSWRConfig()
     const mutate = async () => {
         await Promise.all([CreditMutate(), ChartMutate(ServerConfig.routes.credit.getChartData)])
-    }
-    const initialStates = {
-        open: false, type: "", submit: (data) => {
-        }
     }
 
     const [dialog, setDialog] = useState({...initialStates});
@@ -29,32 +26,12 @@ const BalanceData: FC = (props) => {
         amount: yup.number().required("Amount is required"),
     }).required()
 
+    const {CreditHandler, closeModal} = MakeHandler(setDialog, mutate)
 
-    const creditHandler = (type: "charge" | "withdraw") => {
-        setDialog({
-            open: true, type: type, submit: (data) => {
-                const handler = type === "charge" ? charge : withdraw;
-                handler(data).then(async () => {
-                    await mutate();
-                    toast("Operation done successfully", {
-                        type: "success"
-                    })
-                }).catch((e) => {
-                    toast("Error while doing your request", {
-                        type: "error"
-                    })
-                }).finally(() => {
-                    setDialog({...initialStates})
-                })
-            }
-        })
-    }
 
-    const closeModal = () => {
-        setDialog({...initialStates})
-    }
-    const chargeHandler = () => creditHandler("charge");
-    const withdrawHandler = () => creditHandler("withdraw");
+    const chargeHandler = () => CreditHandler("charge");
+    const withdrawHandler = () => CreditHandler("withdraw");
+
     return (
         <Show>
             <Show.When isTrue={isLoadingCreditData}>
@@ -65,12 +42,12 @@ const BalanceData: FC = (props) => {
             </Show.When>
             <Show.Else>
                 <Stack>
-                    <Typography variant={"h3"}>
+                    <Typography fontSize={{xs: "1.8rem", md: "2.3rem"}} variant={"h3"}>
                         Balance
                     </Typography>
                     <Divider className="my-2"/>
                     <Stack direction={"column"} justifyContent={"space-evenly"} alignItems={"center"}>
-                        <Typography variant={"h4"}>
+                        <Typography fontSize={{xs: "1rem", md: "1.8rem"}} variant={"h5"}>
                             Total Balance : {CreditData?.data}
                         </Typography>
                         <Stack className="w-100 mt-2" direction={"row"} justifyContent={"space-evenly"} alignItems={"center"}>

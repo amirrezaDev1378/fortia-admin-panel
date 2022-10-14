@@ -1,8 +1,20 @@
+@import "../../styles/mixins.module";
+
 .BankCard {
   display: flex;
   flex-grow: 1;
-  border-radius: 20px;
-  padding: 15px;
+
+  @include xsBreakpoint{
+    padding: 10px;
+    border-radius: 10px;
+
+  }
+  @include mdBreakpoint{
+    padding: 15px;
+    border-radius: 20px;
+
+  }
+
   color: white;
   box-shadow: -12px 20px 8px -20px rgba(30, 30, 60, 0.47);
 }

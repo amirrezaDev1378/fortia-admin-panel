@@ -40,8 +40,8 @@ const BankCard: FC<BankCardProps> = (props) => {
     return (
         <StyledCard  item container className={` ${mainClasses.join(" ")}`} flexDirection={"column"} {...sizes}>
             <Typography variant={"h4"}>{title}</Typography>
-            <Typography mt={4} variant={"subtitle1"}>{name}</Typography>
-            <Typography mt={1} variant={"h5"}>{number}</Typography>
+            <Typography mt={{xs:2 , md:4}} variant={"subtitle1"}>{name}</Typography>
+            <Typography mt={1} fontSize={{xs:"1rem" , md:"1.5rem"}} variant={"h5"}>{number}</Typography>
             <Stack mt={2} direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
                 <Typography fontFamily={"Poppins Light"} variant={"h6"}>{date}</Typography>
                 {icon}

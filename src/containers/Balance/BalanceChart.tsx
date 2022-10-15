@@ -19,7 +19,7 @@ const BalanceChart: React.FC = (props) => {
                 <div>No Records Found</div>
             </Show.When>
             <Show.Else>
-                <LineChart data={chartData}/>
+                <LineChart  data={chartData} />
             </Show.Else>
         </Show>
     );

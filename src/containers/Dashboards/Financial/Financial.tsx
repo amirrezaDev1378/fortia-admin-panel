@@ -18,10 +18,10 @@ const Financial: FC<FinancialProps> = (props) => {
 
 
     return (
-        <DashboardContainer md={12}>
-            <Grid md={12} flexWrap={"nowrap"} flexDirection={"column"} display={"flex"} container className={styles.Financial}>
+        <DashboardContainer xs={12} item>
+            <Grid xs={12} item flexWrap={"nowrap"} flexDirection={"column"} display={"flex"} container className={styles.Financial}>
                 <BankCards/>
-                <Grid md={12} display={"flex"} flexDirection={{md: "row"}}>
+                <Grid xs={12} display={"flex"} item flexDirection={{md: "row" , xs:"column"}}>
                     <Balance/>
                     <Grid container item md={7}>
                         <Assets/>

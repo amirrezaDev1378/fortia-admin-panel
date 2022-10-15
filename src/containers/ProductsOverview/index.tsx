@@ -2,10 +2,12 @@ import React, {FC} from 'react';
 import {Grid, Stack, Typography} from "@mui/material";
 import {TbFolders} from "react-icons/all";
 import Link from "next/link";
+import {inspect} from "util";
+import styles from "./styles.module.scss"
 
 const ProductsOverview: FC = () => {
     return (
-        <Grid className="section-primary mt-0" item  xs={12}>
+        <Grid className={`section-primary mt-0 ${styles.overview}`} item xs={12}>
             <Typography color={"white"} className="d-flex flex-row justify-content-between" variant="h4" fontSize={{xs: "1rem", sm: "1.2rem"}}>
                 Products Overview
                 <TbFolders className="bg-glass p-2 rounded-2" size={38}/>

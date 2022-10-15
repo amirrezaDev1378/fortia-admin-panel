@@ -1,0 +1,15 @@
+@import "../../styles/mixins.module";
+
+.overview {
+  & * p, & * h5 {
+    @include maxBreakpoint(450px) {
+      font-size: 0.70rem !important;
+    }
+  }
+
+  @include maxBreakpoint(450px) {
+    &{
+        padding: 10px;
+    }
+  }
+}

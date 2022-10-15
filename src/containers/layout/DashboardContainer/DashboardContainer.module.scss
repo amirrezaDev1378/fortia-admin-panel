@@ -1,5 +1,13 @@
+@import "../../../styles/mixins.module";
 .DashboardContainer {
   &:nth-child(1) {
-    padding-left: 80px;
+    @include xsBreakpoint {
+      padding-left: 40px;
+
+    }
+    @include mdBreakpoint {
+      padding-left: 80px;
+
+    }
   }
 }

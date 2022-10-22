@@ -1,31 +1,29 @@
-import {InitialOptionsTsJest, pathsToModuleNameMapper} from "ts-jest";
-import {compilerOptions} from "./tsconfig.json";
-import path from "path";
+import type {Config} from 'jest';
+import {jsWithTs } from 'ts-jest/presets';
+import {pathsToModuleNameMapper} from "ts-jest";
+import tsConfig from "./tsconfig.json"
 
-const config: InitialOptionsTsJest = {
+import nextJest from "next/jest"
+
+const createJestConfig = nextJest({
+    // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+    dir: './',
+})
+
+const jestConfig: Config = {
     preset: 'ts-jest/presets/js-with-ts',
-    setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
     transform: {
-        '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
-        '^.+\\.(ts|tsx)?$': 'ts-jest',
-        "^.+\\.(js|jsx)$": ["babel-jest" , {
-            configFile:path.join(__dirname , "__TESTS__/babel.config.js")
-        }],
-    },
-    testEnvironment: 'jsdom',
-    moduleDirectories: ['<rootDir>/node_modules', '<rootDir>/src'],
+        ...jsWithTs.transform,
+
+    } as any,
     globals: {
         'ts-jest': {
             tsconfig: 'tsconfig.test.json',
             isolatedModules: true,
-        },
-
-
+        }
     },
-    moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {prefix: '<rootDir>/'}),
-    transformIgnorePatterns: [
-    ],
-
+    setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
+    moduleNameMapper:pathsToModuleNameMapper(tsConfig.compilerOptions.paths,{prefix:'<rootDir>/'}),
+    testEnvironment: 'jest-environment-jsdom',
 }
-
-export default config
+export default createJestConfig(jestConfig);

@@ -26,18 +26,17 @@ const Login: FC<LoginProps> = (props) => {
     }
     const submitHandler: formSubmitHandlerType = async (data, e) => {
         await setSubmitButtonText("loading...");
-
         e.target.querySelectorAll("input").forEach(e => e.value = "")
 
         LoginService(data.username, data.password).then(res => {
             if (res.isUserSaved) {
-                toast("logged successfully", {
+                toast("Login successful", {
                     type: "success",
                     position: "bottom-left"
                 })
             }
         }).catch(err => {
-            const msg = err.response.data.message || "something went wrong";
+            const msg = err.response?.error?.message || "something went wrong";
             toast(`${msg}`, {
                 type: "error",
                 position: "bottom-left"

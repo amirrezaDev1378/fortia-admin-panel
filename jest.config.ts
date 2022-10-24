@@ -1,5 +1,5 @@
 import type {Config} from 'jest';
-import {jsWithTs } from 'ts-jest/presets';
+import {jsWithTs} from 'ts-jest/presets';
 import {pathsToModuleNameMapper} from "ts-jest";
 import tsConfig from "./tsconfig.json"
 
@@ -23,7 +23,10 @@ const jestConfig: Config = {
         }
     },
     setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
-    moduleNameMapper:pathsToModuleNameMapper(tsConfig.compilerOptions.paths,{prefix:'<rootDir>/'}),
+    moduleNameMapper: pathsToModuleNameMapper(tsConfig.compilerOptions.paths, {prefix: '<rootDir>/'}),
     testEnvironment: 'jest-environment-jsdom',
+    reporters: [
+        'default',
+    ]
 }
 export default createJestConfig(jestConfig);

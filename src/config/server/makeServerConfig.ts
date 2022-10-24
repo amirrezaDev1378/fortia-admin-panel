@@ -56,9 +56,6 @@ export class MakeServerConfig {
         this.port = config.port;
         this.address = config.address;
 
-        axios.get(`${this.generateBaseRoute()}`).catch((err) => {
-            throw new Error("server is not responding!!!")
-        })
 
     }
 
@@ -106,6 +103,9 @@ export class MakeServerConfig {
         }
         return React.createContext({
             routes: this.routes as appRoutes,
+            port: this.port,
+            host: this.address
+
         })
     }
     generateObject = () => {
@@ -114,6 +114,9 @@ export class MakeServerConfig {
         }
         return {
             routes: this.routes as appRoutes,
+            port: this.port,
+            host: this.address
+
         }
     }
 

@@ -41,6 +41,9 @@ server.setRoutes({
         delete: '/api/articles/$ID$',
         update: '/api/articles/$ID$',
         getById: '/api/articles/$ID$'
+    },
+    socket: {
+        path: '/chats'
     }
 
 })

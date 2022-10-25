@@ -43,7 +43,10 @@ export type appRoutes = {
         update:string,
         getById:string
     }
-    baseRoute?: string
+    baseRoute?: string,
+    socket?:{
+        path:string
+    }
 }
 
 

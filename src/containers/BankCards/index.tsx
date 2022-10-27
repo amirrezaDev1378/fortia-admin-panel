@@ -42,6 +42,9 @@ const BankCards: FC = (props) => {
 
     const {data, isLoading, error, hasError, hasNoCards} = getCards();
 
+    useEffect(() => {
+       cardHoverAnimation(Array.from(document.querySelectorAll(".keen-slider__slide")))
+    }, []);
 
     return (
         <Show>

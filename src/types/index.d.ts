@@ -1,6 +1,6 @@
 //socket io events
 export interface ServerToClientEvents {
-    getAllChats: any,
+    getAllChats: () =>({result: any[] , pagination: any}),
     sendMessage: any,
 }
 

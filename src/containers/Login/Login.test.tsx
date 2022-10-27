@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Login from './Login';
-import {createRoot} from 'react-dom/client';
 import {act, render, screen} from '@testing-library/react'
 import user from '@testing-library/user-event'
 import LoginMock from "../../../__TESTS__/__mocks__/serverMock/loginMock";

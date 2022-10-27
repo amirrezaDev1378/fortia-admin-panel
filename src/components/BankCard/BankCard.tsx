@@ -4,7 +4,6 @@ import {Stack, Typography} from "@mui/material";
 import Grid from "@mui/material/Grid";
 import {styled} from "@mui/system";
 import CSS from 'csstype';
-import {ServerContext} from "@/config/server/server";
 
 export interface BankCardProps {
     title: string;

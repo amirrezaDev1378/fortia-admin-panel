@@ -7,8 +7,7 @@ import user from '@testing-library/user-event'
 
 it('It should mount', () => {
 
-    const {container} = render(<BorderedPieChart
-
+    const {container} = render(<BorderedPieChart data={[]}
     />);
     expect(container).toBeTruthy();
 
